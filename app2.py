@@ -331,8 +331,20 @@ header {visibility: hidden;}
 def load_model_and_data():
     model = CatBoostRegressor()
     model.load_model("catboost_eta_model.cbm")
-    feature_cols = joblib.load("catboost_feature_cols.pkl")
-    le_day = joblib.load("label_encoder_day.pkl")
+    feature_cols =         feature_cols = [
+            'origin_lat', 'origin_lng',
+            'dest_lat', 'dest_lng',
+            'delta_lat', 'delta_lng',
+            'haversine_km', 'bearing',
+            'distance_km',
+            'hour', 'day_encoded',
+            'weekend', 'peak_hour',
+            'temperature', 'humidity', 'visibility', 'rain'
+        ]
+    from sklearn.preprocessing import LabelEncoder
+    le_day = LabelEncoder()
+    le_day.classes_ = np.array(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 
+                                     'Friday', 'Saturday', 'Sunday'])
     coords = pd.read_csv("place_coordinates.csv")
     coord_dict = {row["place"]: (row["lat"], row["lng"]) for _, row in coords.iterrows()}
     places = list(coord_dict.keys())
