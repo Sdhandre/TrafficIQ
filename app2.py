@@ -335,9 +335,11 @@ def load_model_and_data():
             'origin_lat', 'origin_lng',
             'dest_lat', 'dest_lng',
             'delta_lat', 'delta_lng',
-            'haversine_km', 'bearing_deg',
+            'haversine_km',
+            'bearing_deg',
             'distance_km',
-            'hour', 'day_encoded',
+            'hour',
+            'day_enc',
             'weekend', 'peak_hour',
             'temperature', 'humidity', 'visibility', 'rain'
         ]
