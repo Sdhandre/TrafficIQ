@@ -5,3 +5,4 @@ joblib
 catboost
 folium
 streamlit-folium
+sklearn
