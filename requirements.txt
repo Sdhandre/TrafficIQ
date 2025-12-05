@@ -1,8 +1,8 @@
-streamlit
-pandas
-numpy
-joblib
-catboost
-folium
-streamlit-folium
-sklearn
+streamlit==1.28.0
+pandas==2.0.3
+numpy==1.24.3
+joblib==1.3.2
+catboost==1.2
+folium==0.14.0
+streamlit-folium==0.15.0
+scikit-learn==1.3.0
