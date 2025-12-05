@@ -331,17 +331,24 @@ header {visibility: hidden;}
 def load_model_and_data():
     model = CatBoostRegressor()
     model.load_model("catboost_eta_model.cbm")
-    feature_cols =         feature_cols = [
-            'origin_lat', 'origin_lng',
-            'dest_lat', 'dest_lng',
-            'delta_lat', 'delta_lng',
+    feature_cols = [
+            'origin_lat',
+            'origin_lng',
+            'dest_lat',
+            'dest_lng',
+            'delta_lat',
+            'delta_lng',
             'haversine_km',
             'bearing_deg',
             'distance_km',
             'hour',
             'day_enc',
-            'weekend', 'peak_hour',
-            'temperature', 'humidity', 'visibility', 'rain'
+            'is_weekend',      # Changed from 'weekend'
+            'is_peak_hour',    # Changed from 'peak_hour'
+            'temperature_c',   # Changed from 'temperature'
+            'humidity_pct',    # Changed from 'humidity'
+            'visibility_m',    # Changed from 'visibility'
+            'rain_mm'          # Changed from 'rain'
         ]
     from sklearn.preprocessing import LabelEncoder
     le_day = LabelEncoder()
